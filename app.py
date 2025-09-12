@@ -20,7 +20,7 @@ app=Flask(__name__)
 load_dotenv()
 
 
-
+gemini_api_key=os.environ.get("gemini_api_key=GOOGLE_API_KEY")
 WEAVIATE_URL=os.environ.get("WEAVIATE_URL")
 WEAVIATE_API_KEY=os.environ.get("WEAVIATE_API_KEY")
 os.environ["WEAVIATE_URL"] = WEAVIATE_URL
@@ -48,6 +48,7 @@ chatModel = ChatGoogleGenerativeAI(
     timeout=None,
     max_retries=2
 )
+
 prompt = ChatPromptTemplate.from_messages(
     [
         ("system", system_prompt),
